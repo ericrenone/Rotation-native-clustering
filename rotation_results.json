@@ -1,0 +1,161 @@
+{
+  "A_float16": [
+    {
+      "d": 16,
+      "steps": 4000,
+      "lam": 0.99,
+      "kappa": 1.0,
+      "dtype": "float16",
+      "givens_relerr_final": 0.015534298901319559,
+      "givens_relerr_max": 0.026637046470396077,
+      "sm_relerr_final": null,
+      "sm_relerr_max": null,
+      "sm_min_eig_final": null,
+      "sm_checkpoints_not_PD": 0,
+      "sm_diverged_at_step": 0,
+      "checkpoints": 20
+    },
+    {
+      "d": 16,
+      "steps": 4000,
+      "lam": 0.99,
+      "kappa": 50.0,
+      "dtype": "float16",
+      "givens_relerr_final": 0.017909488331279998,
+      "givens_relerr_max": 0.04177113969053421,
+      "sm_relerr_final": null,
+      "sm_relerr_max": null,
+      "sm_min_eig_final": null,
+      "sm_checkpoints_not_PD": 0,
+      "sm_diverged_at_step": 0,
+      "checkpoints": 20
+    },
+    {
+      "d": 16,
+      "steps": 4000,
+      "lam": 0.99,
+      "kappa": 500.0,
+      "dtype": "float16",
+      "givens_relerr_final": 0.037300927966659785,
+      "givens_relerr_max": 0.03857916984774683,
+      "sm_relerr_final": null,
+      "sm_relerr_max": null,
+      "sm_min_eig_final": null,
+      "sm_checkpoints_not_PD": 0,
+      "sm_diverged_at_step": 0,
+      "checkpoints": 20
+    }
+  ],
+  "A_bfloat16": [
+    {
+      "d": 16,
+      "steps": 4000,
+      "lam": 0.99,
+      "kappa": 1.0,
+      "dtype": "bfloat16",
+      "givens_relerr_final": 0.44948078675734776,
+      "givens_relerr_max": 0.5263511115813306,
+      "sm_relerr_final": 0.3100972044042558,
+      "sm_relerr_max": 0.35055143661132104,
+      "sm_min_eig_final": 0.007493986818084022,
+      "sm_checkpoints_not_PD": 0,
+      "sm_diverged_at_step": null,
+      "checkpoints": 20
+    },
+    {
+      "d": 16,
+      "steps": 4000,
+      "lam": 0.99,
+      "kappa": 50.0,
+      "dtype": "bfloat16",
+      "givens_relerr_final": 0.3515472988595272,
+      "givens_relerr_max": 0.4613798956519408,
+      "sm_relerr_final": 1.9040617811689522,
+      "sm_relerr_max": 1.9075056224987699,
+      "sm_min_eig_final": -0.01898708291010623,
+      "sm_checkpoints_not_PD": 10,
+      "sm_diverged_at_step": null,
+      "checkpoints": 20
+    },
+    {
+      "d": 16,
+      "steps": 4000,
+      "lam": 0.99,
+      "kappa": 500.0,
+      "dtype": "bfloat16",
+      "givens_relerr_final": 0.5778813206607127,
+      "givens_relerr_max": 0.6857962374642479,
+      "sm_relerr_final": 6.21598347217947,
+      "sm_relerr_max": 6.383708278035352,
+      "sm_min_eig_final": -0.05504905878575303,
+      "sm_checkpoints_not_PD": 12,
+      "sm_diverged_at_step": 2575,
+      "checkpoints": 20
+    }
+  ],
+  "A_float32": [
+    {
+      "d": 16,
+      "steps": 4000,
+      "lam": 0.99,
+      "kappa": 500.0,
+      "dtype": "float32",
+      "givens_relerr_final": 1.2030647221455896e-06,
+      "givens_relerr_max": 2.047816592961747e-06,
+      "sm_relerr_final": 1.348096321641083e-06,
+      "sm_relerr_max": 0.00037297069304897685,
+      "sm_min_eig_final": 1.8668847665805012e-05,
+      "sm_checkpoints_not_PD": 0,
+      "sm_diverged_at_step": null,
+      "checkpoints": 20
+    }
+  ],
+  "B_fixed_point_ratio": {
+    "Q24_40_ulp": 9.094947017729282e-13,
+    "N0": 1e-10,
+    "N0_in_ulps": 109.9511627776,
+    "centroid_resolution_at_init": 0.009094947017729282,
+    "bits_of_centroid_at_init": 6.780719051126376,
+    "bits_needed_on_S_for_tau": {
+      "0.001": 43.18506523353571,
+      "1e-06": 53.150849518197795,
+      "1e-09": 63.11663380285989
+    },
+    "note": "Within one batch at alpha=1 the count becomes O(1) and the ratio is well-posed; the 1e-10 idiom is a float trick to make S/N equal c0 at t=0. On fixed point use N0=1, S0=c0."
+  },
+  "C_invariants": {
+    "max_mass_residual": 0.6510000000117486,
+    "max_first_moment_residual_no_revival": 8.198074455012805e-13,
+    "first_moment_residual_max": 17.35314797886305,
+    "revivals": 1,
+    "first_moment_jump_per_revival": [
+      24.79021139837478
+    ],
+    "note": "mass is conserved to float eps always; first moment is conserved to float eps between revivals and jumps by ~delta*|c|*N_j/2*... at each revival, so a residual monitor flags every revival as an event"
+  },
+  "D_lorentz_ema": {
+    "on_hyperboloid": -1.0,
+    "ema_vs_batch_lorentz_dist": 0.09501136207713004,
+    "note": "EMA of raw Lorentz vectors, normalised by Minkowski norm (x^2 - y^2 invariant = CORDIC m=-1 vectoring), sits on the manifold (<c,c>_L = -1) and matches the batch Lorentz centroid"
+  },
+  "A_bf16_lambda_bias": {
+    "lambda_eff": 0.9922027587890625,
+    "runs": [
+      {
+        "kappa": 1.0,
+        "err_vs_nominal_lambda": 0.44948078675734776,
+        "err_vs_effective_lambda": 0.9094799564542133
+      },
+      {
+        "kappa": 50.0,
+        "err_vs_nominal_lambda": 0.3515472988595272,
+        "err_vs_effective_lambda": 0.7581403378161827
+      },
+      {
+        "kappa": 500.0,
+        "err_vs_nominal_lambda": 0.5778813206607127,
+        "err_vs_effective_lambda": 0.4512657651353163
+      }
+    ]
+  }
+}
